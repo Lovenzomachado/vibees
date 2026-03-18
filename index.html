@@ -846,19 +846,22 @@
             <h2>Parceria que gera<br/><em>resultados</em></h2>
             <p>Atendemos empresas focadas em equipes <strong>a partir de 200 colaboradores</strong>. Chegou a hora de investir de verdade na sua comunicação interna.</p>
           </div>
-          <form class="form-fields" id="lead-form" novalidate>
+          <form class="form-fields" id="lead-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="33eaef28-ebfb-4e6e-83c8-01e05d2bc8af" />
+            <input type="hidden" name="subject" value="Novo contato via site Vibees" />
+            <input type="hidden" name="redirect" value="false" />
             <div>
               <label class="field-label" for="nome">Nome completo</label>
-              <input class="field-input" id="nome" type="text" placeholder="Como devemos te chamar?" required />
+              <input class="field-input" id="nome" name="name" type="text" placeholder="Como devemos te chamar?" required />
             </div>
             <div>
               <label class="field-label" for="email">E-mail corporativo</label>
-              <input class="field-input" id="email" type="email" placeholder="nome@empresa.com.br" required />
+              <input class="field-input" id="email" name="email" type="email" placeholder="nome@empresa.com.br" required />
             </div>
             <div class="field-row">
               <div>
                 <label class="field-label" for="empresa">Empresa</label>
-                <input class="field-input" id="empresa" type="text" placeholder="Sua empresa" required />
+                <input class="field-input" id="empresa" name="empresa" type="text" placeholder="Sua empresa" required />
               </div>
               <div>
                 <label class="field-label" for="colaboradores">Colaboradores</label>
@@ -1063,11 +1066,32 @@
       heroVis.style.cssText = 'opacity:1;transform:none;transition:opacity .8s .15s,transform .8s .15s';
     }, 40));
 
-    document.getElementById('lead-form').addEventListener('submit', function(e) {
+    document.getElementById('lead-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = this.querySelector('.btn-submit');
-      btn.innerHTML = '✓ Solicitação enviada';
-      btn.style.background = 'rgba(250,246,240,.15)';
+      const original = btn.innerHTML;
+      btn.innerHTML = 'Enviando...';
+      btn.disabled = true;
+
+      const data = new FormData(this);
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        btn.innerHTML = '✓ Solicitação enviada!';
+        btn.style.background = 'rgba(250,246,240,.15)';
+        this.reset();
+        document.getElementById('selectValue').textContent = 'Selecione';
+        document.getElementById('colaboradores').value = '';
+        document.getElementById('selectTrigger').classList.remove('filled');
+      } else {
+        btn.innerHTML = original;
+        btn.disabled = false;
+        alert('Erro ao enviar. Tente novamente.');
+      }
     });
 
     // custom select
