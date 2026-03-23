@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vibees — Endomarketing de performance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     @font-face {
       font-family: 'Co Headline';
@@ -84,6 +88,7 @@
     .nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--wine); }
     .nav-cta {
+      font-family: 'DM Sans', sans-serif;
       background: var(--wine); color: var(--cream) !important;
       padding: 10px 24px; font-size: 13px; font-weight: 700;
       letter-spacing: .04em; border: none; cursor: pointer;
@@ -148,14 +153,18 @@
       letter-spacing: .06em; text-decoration: none;
       display: inline-flex; align-items: center; gap: 10px;
       transition: background .2s, gap .2s;
+      font-family: 'DM Sans', sans-serif;
     }
     .btn-primary:hover { background: var(--coral); gap: 16px; }
+    .btn-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .btn-icon svg { width: 16px; height: 16px; stroke-width: 2; display: block; }
     .btn-ghost {
       background: transparent; color: var(--wine);
-      padding: 14px 32px; font-size: 13px; font-weight: 400;
+      padding: 14px 32px; font-size: 13px; font-weight: 500;
       letter-spacing: .02em; text-decoration: none;
       border: 1px solid rgba(92,10,31,.25);
       transition: border-color .2s, color .2s;
+      font-family: 'DM Sans', sans-serif;
     }
     .btn-ghost:hover { border-color: var(--wine); color: var(--wine); }
 
@@ -285,7 +294,7 @@
     }
     .card-desc {
       font-size: 15px; color: var(--muted); line-height: 1.7;
-      font-weight: 300; flex: 1; margin-bottom: 36px;
+      font-weight: 300; margin-bottom: 0;
     }
     .card-cta {
       display: inline-flex; align-items: center; gap: 8px;
@@ -295,6 +304,19 @@
     .service-card:hover .card-cta { gap: 14px; }
     .card-cta-line { width: 24px; height: 1px; background: var(--wine); transition: width .2s; }
     .service-card:hover .card-cta-line { width: 36px; }
+    .card-scope {
+      list-style: none; margin-top: auto; padding-top: 28px; margin-bottom: 32px; padding-left: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .card-scope li {
+      font-size: 12px; font-weight: 400; color: var(--muted);
+      letter-spacing: .02em; line-height: 1.4;
+      padding-left: 14px; position: relative;
+    }
+    .card-scope li::before {
+      content: ''; position: absolute; left: 0; top: 7px;
+      width: 5px; height: 1px; background: var(--coral);
+    }
 
     /* ── ABOUT ── */
     #historia {
@@ -500,7 +522,7 @@
       margin-top: 8px; width: 100%;
       background: var(--cream); color: var(--wine);
       border: none; padding: 16px;
-      font-family: var(--f); font-weight: 700; font-size: 13px;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 13px;
       letter-spacing: .08em;
       cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
       transition: background .2s, gap .2s;
@@ -585,12 +607,12 @@
       <div class="hero-inner">
         <div>
           <div class="hero-eyebrow">Endomarketing de performance</div>
-          <h1>Sua equipe tá<br/>no <em>mesmo barco?</em></h1>
-          <p class="hero-sub">Comunicação interna que engaja de verdade. Combinamos estratégia, métricas e um toque humano para transformar times.</p>
+          <h1>Sua equipe está<br/>no <em>mesmo barco?</em></h1>
+          <p class="hero-sub">Fortalecemos a sua comunicação interna para aproximar, engajar e dar sentido ao dia a dia das equipes — claro, com muita Good Vibees!</p>
           <div class="hero-btns">
-            <a href="#contato" class="btn-primary">
+            <a href="https://wa.me/5551999999999" target="_blank" rel="noopener" class="btn-primary">
               Falar com a gente
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              <i data-lucide="arrow-right" class="btn-icon"></i>
             </a>
             <a href="#solucoes" class="btn-ghost">Ver soluções</a>
           </div>
@@ -603,7 +625,7 @@
               alt="Equipe Vibees"
             />
             <div class="hero-stat">
-              <span class="hero-stat-num">10+</span>
+              <span class="hero-stat-num">14+</span>
               <span class="hero-stat-label">Anos de mercado</span>
             </div>
           </div>
@@ -638,15 +660,21 @@
             <div class="eyebrow">Nossas soluções</div>
             <h2>Como podemos<br/><em>te ajudar?</em></h2>
           </div>
-          <p class="services-lead">Job pontual ou fee mensal — entregamos o formato certo para o seu time.</p>
         </div>
         <div class="cards-grid">
           <div class="service-card" data-delay="0">
             <div>
               <div class="card-num">01</div>
               <div class="card-title">Fee mensal</div>
-              <p class="card-desc">Nossa equipe como extensão da sua. Parceria contínua com resultados reais no dia a dia.</p>
+              <p class="card-desc">Parceria contínua, com relacionamento de longo prazo e contato direto entre agência e cliente. Nos aprofundamos na realidade das empresas e estamos sempre disponíveis para demandas e troca de ideias.</p>
             </div>
+            <ul class="card-scope">
+              <li>Planejamento</li>
+              <li>Campanhas de endomarketing</li>
+              <li>Comunicação interna</li>
+              <li>Criação de manuais e outras demandas</li>
+              <li>Orçamentos e gestão de fornecedores</li>
+            </ul>
             <div class="card-cta">
               <span class="card-cta-line"></span>Recomendado
             </div>
@@ -654,19 +682,31 @@
           <div class="service-card" data-delay="150">
             <div>
               <div class="card-num">02</div>
-              <div class="card-title">Job pontual</div>
-              <p class="card-desc">Ação rápida e focada. Para resolver um problema específico de comunicação interna.</p>
+              <div class="card-title">Jobs</div>
+              <p class="card-desc">Demanda objetiva e pontual, com início, meio e fim. O escopo é determinado pelo briefing, podendo ser um projeto mais complexo ou uma campanha simples. O relacionamento é pontual e costuma ter envolvimento direto da sócia.</p>
             </div>
+            <ul class="card-scope">
+              <li>Planejamento de campanha</li>
+              <li>Criação de campanhas de endomarketing</li>
+              <li>Newsletter</li>
+              <li>Roteiro e edição de vídeos</li>
+            </ul>
             <div class="card-cta">
-              <span class="card-cta-line"></span>Ação rápida
+              <span class="card-cta-line"></span>Ação pontual
             </div>
           </div>
           <div class="service-card" data-delay="300">
             <div>
               <div class="card-num">03</div>
-              <div class="card-title">Consultoria</div>
-              <p class="card-desc">Direcionamento estratégico para estruturar o endomarketing do zero.</p>
+              <div class="card-title">Consultorias</div>
+              <p class="card-desc">Direcionamento estratégico para estruturar, diagnosticar e fortalecer a comunicação interna da sua empresa.</p>
             </div>
+            <ul class="card-scope">
+              <li>Marca empregadora</li>
+              <li>Diagnóstico de comunicação interna</li>
+              <li>Organização da área de comunicação interna</li>
+              <li>Projetos especiais</li>
+            </ul>
             <div class="card-cta">
               <span class="card-cta-line"></span>Estratégico
             </div>
@@ -689,8 +729,10 @@
             <h2>Como tudo<br/><em>começou</em></h2>
             <div class="divider"></div>
             <div class="about-text">
-              <p>Fundada por <strong>Gisele Bernardon</strong>, a Vibees nasceu de uma experiência real. No Walmart, Gisele percebeu que campanhas falhavam quando os funcionários não estavam alinhados.</p>
-              <p>Foi ali que ela descobriu o poder do <span class="hi">endomarketing</span>. Com coragem e propósito, a Vibees começou em 2012 e cresceu exponencialmente após a pandemia.</p>
+              <p>Nascemos em fevereiro de 2012, e como o nosso próprio nome diz, a gente acredita que o trabalho em conjunto garante resultados mais efetivos. Independentemente do tamanho de cada negócio, temos a certeza que o <span class="hi">endomarketing</span> faz a diferença para grandes ou pequenas empresas.</p>
+              <p>Trabalhamos de forma transparente e leve, pois entendemos que a melhor forma de comunicar é ser simples e direto, sempre no tempo correto.</p>
+              <p><strong>PARA NÓS, SER GOODVIBEES É UM ESTILO DE VIDA QUE TAMBÉM CONDUZ NOSSAS ATIVIDADES.</strong></p>
+              <p>Por isso, vemos na comunicação um dos principais ingredientes para gerar felicidade e motivação dentro de uma empresa. Uma forma leve de alcançar resultados e de vencer desafios juntos. Essa é a Vibees.</p>
             </div>
             <div class="about-features">
               <div class="feat-card">
@@ -698,7 +740,7 @@
                 <span class="feat-label">Projetos entregues</span>
               </div>
               <div class="feat-card">
-                <span class="feat-num">10+</span>
+                <span class="feat-num">14+</span>
                 <span class="feat-label">Anos de mercado</span>
               </div>
             </div>
@@ -836,6 +878,19 @@
       </div>
     </section>
 
+    </section>
+
+    <!-- SLOGAN -->
+    <section id="slogan" style="background:#faf6f0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px;">
+      <div style="max-width:700px;">
+        <h2 style="font-family:'Co Headline',sans-serif;font-size:clamp(2rem,5vw,3.5rem);color:#3d0a14;margin-bottom:32px;">Sorrisos que geram resultados.</h2>
+        <a href="https://wa.me/5551999999999" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">
+          Falar com a gente
+          <i data-lucide="arrow-right" class="btn-icon"></i>
+        </a>
+      </div>
+    </section>
+
         <!-- CONTACT -->
     <section id="contato">
       
@@ -910,8 +965,9 @@
           <div>
             <div class="footer-col-title">Social</div>
             <ul class="footer-links">
-              <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Instagram</a></li>
+              <li><a href="#" target="_blank">LinkedIn</a></li>
+              <li><a href="#" target="_blank">Instagram</a></li>
+              <li><a href="mailto:contato@vibees.com.br">contato@vibees.com.br</a></li>
             </ul>
           </div>
         </div>
@@ -923,7 +979,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const hamburger = document.getElementById('hamburger');
@@ -1117,15 +1173,19 @@
           dropdown.classList.remove('open');
           dropdown.querySelectorAll('.custom-select-option')
             .forEach(o => o.classList.remove('selected'));
-          opt.classList.add('selected');
+              opt.classList.add('selected');
         });
       });
 
       document.addEventListener('click', function() {
-        trigger.classList.remove('open');
         dropdown.classList.remove('open');
+        trigger.classList.remove('open');
       });
     })();
+
   </script>
+
+  <script>lucide.createIcons();</script>
+
 </body>
 </html>
