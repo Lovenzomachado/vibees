@@ -211,6 +211,25 @@
       background: var(--wine); overflow: hidden;
       position: relative;
     }
+    .clients-header {
+      text-align: center;
+      padding: 0 32px 28px;
+    }
+    .clients-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: .14em;
+      color: var(--coral); margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .clients-eyebrow::before,
+    .clients-eyebrow::after {
+      content: ''; display: inline-block; width: 24px; height: 1px; background: var(--coral);
+    }
+    .clients-subtitle {
+      font-size: 13px; color: rgba(255,255,255,0.55);
+      margin: 6px 0 0; font-family: var(--f-body);
+      letter-spacing: 0.02em;
+    }
     .ticker-track {
       display: flex; gap: 80px; width: max-content; align-items: center;
       animation: ticker 80s linear infinite;
@@ -650,6 +669,10 @@
 
     <!-- TICKER -->
     <section id="clients">
+      <div class="clients-header">
+        <span class="clients-eyebrow">Nossos clientes</span>
+        <p class="clients-subtitle">Empresas que confiam na Vibees para transformar sua comunicação interna</p>
+      </div>
       <div class="ticker-track">
         <div class="ticker-item"><img src="https://i.ibb.co/wfTd3Bx/amgen.png" alt="Amgen"></div>
         <div class="ticker-item"><img src="https://i.ibb.co/DD4Sxb19/brde.png" alt="BRDE"></div>
@@ -691,6 +714,7 @@
     </section>
 
     <!-- SERVICES -->
+
     <section id="solucoes">
       
       <div class="section-wrap">
@@ -760,7 +784,7 @@
       <div class="section-wrap">
         <div class="about-inner">
           <div class="about-img-wrap" id="about-img">
-            <img class="about-img" src="https://images.unsplash.com/photo-1658843625838-1f2fae699903?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Gisele Bernardon" />
+            <a href="https://ibb.co/Gfb1CY0C"><img class="about-img" src="https://i.ibb.co/Kc3QV4XV/Time.jpg" alt="Time" border="0" /></a>
             <div class="about-year-tag">Desde 2012</div>
           </div>
           <div class="about-content" id="about-content">
